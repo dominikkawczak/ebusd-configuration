@@ -1,3 +1,6 @@
 # type (r;w;u;1-9),class,name,comment,QQ,ZZ,PBSB,ID,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment,field,part (m;s),type / templates,divider / values,unit,comment
 *r,scan,,,,,B509,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 r,scan,id,Scan ID,,,,24;25;26;27,,,IGN,,,,prefix,,STR:2,,,,year,,STR:2,,,,week,,STR:2,,,,product,,STR:10,,,,supplier,,STR:4,,,,counter,,STR:6,,,,suffix,,STR:2,,,
+#required responses to emulate VR_92
+r,model,model,Model change,,35;75;f5;1c,0704,,brand,,HEX,=b5,,,model,,STR:5,=VR_92,,,v1,,PIN,=0514,,,v2,,PIN,=1204,,,,,,,,,,,,,,,,,,,,,,,,,,
+r,errormock,errormock,Return no errors,,35;75;f5;1c,b503,0001;0002,error1,,UIN,=-,,,error2,,UIN,=-,,,error3,,UIN,=-,,,error4,,UIN,=-,,,error5,,UIN,=-,,,,,,,,,,,,,,,,,,,,

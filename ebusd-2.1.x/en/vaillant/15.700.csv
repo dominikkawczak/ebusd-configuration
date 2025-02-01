@@ -1,5 +1,10 @@
 # type (r[1-9];w;u),circuit,name,[comment],[QQ],ZZ,PBSB,[ID],field1,part (m/s),datatypes/templates,divider/values,unit,comment
 #,70000,VRC 700,700 110,,,,,,,,,,
+# ##### Custom #####,,,,,,,,,,,,,
+*w,,,,,,B503,07,,,,,,
+w,,ux1,ux1,,,,00,,,errors,,,
+*w,,,,,,B524,06,,,,,,
+w,,ux2,ux2,,,,00,,,HCD,,,
 # ##### Generell #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000000,,,IGN:4,,,
 *w,,,,,,B524,02010000,,,,,,
@@ -80,6 +85,25 @@ r;w,,HwcHolidayEndPeriod,hwc holiday end period,,,,0A00,,,hto,,,end date of holi
 r;w,,HwcBankHolidayStartPeriod,hwc bank holiday start period,,,,0B00,,,hfrom,,,start date of bank holidays
 r;w,,HwcBankHolidayEndPeriod,hwc bank holiday end period,,,,0C00,,,hto,,,end date of bank holidays
 r;w,,HwcSFMode,hwc SF mode,,,,0D00,,,sfmode,,,
+# ##### set address 1 #####,,,,,,,,,,,,,
+*w,,,,,,B524,06010a01,,,,,,
+w,,a1RoomTemp,Address 1 actual temperature,,,,0f00,,,tempv,,,set current temperature in address 1
+w,,a1RoomHum,Address 1 actual humidity,,,,0700,,,EXP,,,set current humidity in address 1
+# ##### set address 2 #####,,,,,,,,,,,,,
+*w,,,,,,B524,06010a02,,,,,,
+w,,a2RoomTemp,Address 2 actual temperature,,,,0f00,,,tempv,,,set current temperature in address 2
+w,,a2RoomHum,Address 2 actual humidity,,,,0700,,,EXP,,,set current humidity in address 2
+# ##### set address 3 #####,,,,,,,,,,,,,
+*w,,,,,,B524,06010a03,,,,,,
+w,,a3RoomTemp,Address 3 actual temperature,,,,0f00,,,tempv,,,set current temperature in address 3
+w,,a3RoomHum,Address 3 actual humidity,,,,0700,,,EXP,,,set current humidity in address 3
+# ##### set address 4 temp #####,,,,,,,,,,,,,
+*w,,,,,,B524,06010a04,,,,,,
+w,,a4RoomTemp,Address 4 actual temperature,,,,0f00,,,tempv,,,set current temperature in address 4
+w,,a4RoomHum,Address 4 actual humidity,,,,0700,,,EXP,,,set current humidity in address 4
+# ##### unknown read #####,,,,,,,,,,,,,
+*r,,,,,,B524,01020116,,,,,,
+r,,u1,Unknown 1 ping,,,,00,,,IGN,,,unknown 1 ping
 # ##### heating circuit 1 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000200,,,IGN:4,,,
 *w,,,,,,B524,02010200,,,,,,
@@ -105,6 +129,7 @@ r;w,,Hc1PumpStatus,PumpStatus heating circuit 1,,,,1E00,,,UIN,,,pump status of z
 # ##### heating circuit 2 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000201,,,IGN:4,,,
 *w,,,,,,B524,02010201,,,,,,
+r,,u2,Unknown 2 ping,,,,1600,,,STR,,,unknown 2 ping
 r,,Hc2CircuitType,CircuitType heating circuit 2,,,,0200,,,mctype;IGN:1,,,
 #r;w,,Hc2Unknown04,(constant 30) temperature heating circuit 2,,,,0400,,,tempv,,,unknown value for Hc2
 r,,Hc2ActualFlowTempDesired,ActualFlowTempDesired heating circuit 2,,,,0700,,,tempv,,,current flow temperature setpoint of Hc2
@@ -169,9 +194,11 @@ r;w,,z1ActualRoomTempDesired,room temperature desired zone 1,,,,1400,,,tempv,,,c
 r;w,,z1Shortname,Kurzbezeichnung zone 1,,,,1600,,,shortname,,,short name of zone 1
 r;w,,z1Name1,zone 1 label (first part),,,,1700,,,zname,,,name of zone 1
 r;w,,z1Name2,zone 1 label (second part),,,,1800,,,zname,,,name of zone 1
+w,,z1SetExpectedTemp,Zone 1 set expected temperature,,,,2200,,,tempv,,,set expected temperature in zone 1
 # ##### zone 2 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000301,,,IGN:4,,,
 *w,,,,,,B524,02010301,,,,,,
+r,,u3,Unknown 3 ping,,,,1b00,,,STR,,,unknown 3 ping
 r;w,,z2OpModeCooling,cooling operation mode zone 2,,,,0100,,,opmode,,,operation mode for cooling of zone 2
 r;w,,z2CoolingTemp,cooling setpoint zone 2,,,,0200,,,tempv,,,desired cooling setpoint for zone 2
 r;w,,z2HolidayStartPeriod,holiday period start zone 2,,,,0300,,,hfrom,,,start date of holidays for zone 2
@@ -192,6 +219,7 @@ r;w,,z2ActualRoomTempDesired,room temperature desired zone 2,,,,1400,,,tempv,,,c
 r;w,,z2Shortname,Kurzbezeichnung zone 2,,,,1600,,,shortname,,,short name of zone 2
 r;w,,z2Name1,zone 2 label (first part),,,,1700,,,zname,,,name of zone 2
 r;w,,z2Name2,zone 2 label (second part),,,,1800,,,zname,,,name of zone 2
+w,,z2SetExpectedTemp,Zone 2 set expected temperature,,,,2200,,,tempv,,,set expected temperature in zone 2
 # ##### zone 3 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000302,,,IGN:4,,,
 *w,,,,,,B524,02010302,,,,,,
@@ -215,6 +243,7 @@ r;w,,z3ActualRoomTempDesired,room temperature desired zone 3,,,,1400,,,tempv,,,c
 r;w,,z3Shortname,shortlabel zone 3,,,,1600,,,shortname,,,short name of zone 3
 r;w,,z3Name1,label zone 3 part 1,,,,1700,,,zname,,,name of zone 3
 r;w,,z3Name2,label zone 3 part 2,,,,1800,,,zname,,,name of zone 3
+w,,z3SetExpectedTemp,Zone 3 set expected temperature,,,,2200,,,tempv,,,set expected temperature in zone 3
 # ##### timers #####,,,,,,,,,,,,,
 # air,,,,,,,,,,,,,
 *r,,,,,,B524,03000001,,,IGN:1,,,whether timeslot is valid
